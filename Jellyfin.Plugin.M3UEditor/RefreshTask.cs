@@ -26,6 +26,11 @@ namespace Jellyfin.Plugin.M3UEditor
             _logger = logger;
         }
 
+        public Task ExecuteAsync(IProgress<double> progress, CancellationToken cancellationToken)
+        {
+            return RefreshData(cancellationToken, progress);
+        }
+
         public Task Execute(CancellationToken cancellationToken, IProgress<double> progress)
         {
             return RefreshData(cancellationToken, progress);
